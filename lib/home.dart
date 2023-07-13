@@ -10,6 +10,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
+    // ignore: avoid_print
     print("_ incrementCounter ok");
     setState(() {
       _counter++;
