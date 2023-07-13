@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-class CreateTodo extends StatelessWidget{
-  const CreateTodo({Key? key}):super(key:key);
+class HomeScreen extends StatelessWidget{
+  const HomeScreen({Key? key}):super(key:key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('create todo'),
+          title: const Text('Home'),
         ),
         body: const Center(
-          child: Text('create todo'),
+          child: Text('Home'),
         )
     );
   }
