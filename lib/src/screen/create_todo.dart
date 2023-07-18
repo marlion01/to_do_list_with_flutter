@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../data/mamo_data.dart';
 class CreateTodo extends ConsumerWidget{
   const CreateTodo({Key? key}):super(key:key);
   @override
   Widget build(BuildContext context,WidgetRef ref) {
+    final title=ref.watch(provider)
     return Scaffold(
         appBar: AppBar(
           title: const Text("Create a Todo List!"),
@@ -26,6 +28,7 @@ class CreateTodo extends ConsumerWidget{
                 horizontal: 15,
               ),
               child: const TextField(
+                controller: _editingController,
                 keyboardType: TextInputType.multiline,
                 maxLines:  1,
                 decoration: InputDecoration(
@@ -73,7 +76,7 @@ class CreateTodo extends ConsumerWidget{
       floatingActionButton:Row(
         children: [
           Expanded(
-              child: FloatingActionButton(
+              child: TextButton(
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
@@ -84,7 +87,7 @@ class CreateTodo extends ConsumerWidget{
               )
           ),
           Expanded(
-              child: FloatingActionButton(
+              child: TextButton(
                 child: const Text("save"),
                 onPressed: (){},
               )
