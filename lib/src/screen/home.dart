@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:state_manage_test/src/settings/settings.dart';
-class HomeScreen extends StatelessWidget{
+class HomeScreen extends ConsumerWidget{
   const HomeScreen({Key? key}):super(key:key);
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,WidgetRef ref) {
     return Scaffold(
         appBar: AppBar(
           leading: IconButton(icon:Icon(Icons.menu),onPressed:(){}),
@@ -12,7 +13,7 @@ class HomeScreen extends StatelessWidget{
           actions: [
             IconButton(
                 onPressed: (){},
-                icon: Icon(Icons.search)),
+                icon: const Icon(Icons.search)),
             IconButton(
                 onPressed: (){
                   Navigator.push(
@@ -20,7 +21,7 @@ class HomeScreen extends StatelessWidget{
                     MaterialPageRoute(builder: (context) => Settings()),
                   );
                 },
-                icon: Icon(Icons.settings)),
+                icon: const Icon(Icons.settings)),
           ],
         ),
         body: const Center(

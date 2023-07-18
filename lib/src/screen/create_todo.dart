@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-class CreateTodo extends StatelessWidget{
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+class CreateTodo extends ConsumerWidget{
   const CreateTodo({Key? key}):super(key:key);
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,WidgetRef ref) {
     return Scaffold(
         appBar: AppBar(
           title: const Text("Create a Todo List!"),
         ),
-        body:Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        body:ListView(
           children: [
             Container(
               decoration: BoxDecoration(
@@ -37,7 +37,6 @@ class CreateTodo extends StatelessWidget{
             Expanded(
               child: Form(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
                       decoration: BoxDecoration(
@@ -54,21 +53,44 @@ class CreateTodo extends StatelessWidget{
                         vertical: 10,
                         horizontal: 15,
                       ),
-                      child: const TextField(
-                        keyboardType: TextInputType.multiline,
-                        maxLines: null,
-                        decoration: InputDecoration(
-                          hintText: "内容を入力してください",
-                          border: InputBorder.none,
-                        ),
-                        style: TextStyle(
+                      child: const SingleChildScrollView(
+                        child: TextField(
+                          keyboardType: TextInputType.multiline,
+                          maxLines: 14,
+                          decoration: InputDecoration(
+                            hintText: "内容を入力してください",
+                            border: InputBorder.none,
+                          ),
+                          style: TextStyle(
+                          ),
                         ),
                       ),
-                    )
+                    ),
                   ],
             ),),),
           ],
         ),
+      floatingActionButton:Row(
+        children: [
+          Expanded(
+              child: FloatingActionButton(
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: const Text("画像を追加"),
+                ),
+                onPressed: (){},
+              )
+          ),
+          Expanded(
+              child: FloatingActionButton(
+                child: const Text("save"),
+                onPressed: (){},
+              )
+          ),
+        ],
+      ),
     );
   }
 }
